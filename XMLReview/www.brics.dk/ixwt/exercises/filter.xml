@@ -1,0 +1,5 @@
+<foo>
+  this is a LOWER CASE test
+  <bar>nothing happens here</bar>
+  <!-- and a comment -->
+</foo>

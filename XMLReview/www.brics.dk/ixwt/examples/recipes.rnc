@@ -1,0 +1,51 @@
+default namespace = "http://www.brics.dk/ixwt/recipes"
+datatypes d = "http://relaxng.org/ns/compatibility/datatypes/1.0"
+
+start =
+  element collection {
+    element description { text },
+    element-recipe*
+  }
+
+element-recipe =
+  element recipe {
+    attribute id { d:ID }?,
+    ((element title { text },
+      element date { text },
+      element-ingredient*,
+      element-preparation,
+      element nutrition { attributes-nutrition },
+      element-related*)
+     & element comment { text }?)
+  }
+
+element-ingredient =
+  element ingredient {
+    attribute name { text },
+    ((attribute amount { "*" | NUMBER },
+      attribute unit { text }?)
+     | (element-ingredient*, element-preparation))
+  }
+
+
+element-preparation =
+  element preparation {
+    element step { text }*
+  }
+
+attributes-nutrition =
+  attribute calories { NUMBER },
+  attribute protein { PERCENTAGE },
+  attribute carbohydrates { PERCENTAGE },
+  attribute fat { PERCENTAGE },
+  attribute alcohol { PERCENTAGE }?
+
+element-related =
+  element related {
+    text,
+    attribute ref { d:IDREF }
+  }
+
+PERCENTAGE = xsd:string { pattern = "([0-9]|[1-9][0-9]|100)%" }
+
+NUMBER = xsd:decimal { minInclusive = "0" }

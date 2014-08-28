@@ -1,0 +1,115 @@
+<description xmlns="http://www.w3.org/2006/01/wsdl"
+             targetNamespace="http://www.brics.dk/ixwt/recipes/wsdl"
+             xmlns:x="http://www.brics.dk/ixwt/recipes/wsdl">
+  <types> 
+    <xs:schema 
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         targetNamespace="http://www.brics.dk/ixwt/recipes/wsdl/types"
+         xmlns:t="http://www.brics.dk/ixwt/recipes/wsdl/types">
+
+      <xs:import namespace="http://www.brics.dk/ixwt/recipes"
+                 schemaLocation="recipes.xsd"/>
+
+      <xs:element name="lock">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element name="lockError" type="xs:string"/>
+
+      <xs:element name="getRecipes">
+        <xs:complexType><xs:sequence/></xs:complexType>
+      </xs:element>
+
+      <xs:element name="lockRecipe">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:NMTOKEN"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="lockRecipeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="t:lock"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="writeRecipe">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="t:recipe"/>
+            <xs:element ref="t:lock"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="unlockRecipe">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="t:lock"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:schema>
+  </types>
+  
+  <interface name="recipeserverInterface"
+             xmlns:t="http://www.brics.dk/ixwt/recipes/wsdl/types"
+             styleDefault="http://www.w3.org/2006/01/wsdl/style/rpc"> 
+
+    <fault name="lockFault" element="t:lockError"/>
+
+    <operation name="getRecipesOperation" 
+               pattern="http://www.w3.org/2006/01/wsdl/in-out">
+      <input messageLabel="In" element="t:getRecipes"/>
+      <output messageLabel="Out" element="t:collection"/>
+    </operation>
+
+    <operation name="lockRecipeOperation" 
+               pattern="http://www.w3.org/2006/01/wsdl/in-out">
+      <input messageLabel="In" element="t:lockRecipe"/>
+      <output messageLabel="Out" element="t:lockRecipeResponse"/>
+      <outfault ref="x:lockFault" messageLabel="Out"/>
+    </operation>
+
+    <operation name="writeRecipeOperation" 
+               pattern="http://www.w3.org/2006/01/wsdl/robust-in-only">
+      <input messageLabel="In" element="t:writeRecipe"/>
+      <outfault ref="x:lockFault"/>
+    </operation>
+
+    <operation name="unlockRecipeOperation" 
+               pattern="http://www.w3.org/2006/01/wsdl/in-only">
+      <input messageLabel="In" element="t:lock"/>
+    </operation>
+
+  </interface>
+
+  <binding name="recipeserverSOAPBinding" 
+           interface="x:recipeserverInterface"
+           type="http://www.w3.org/2006/01/wsdl/soap12"
+           xmlns:ws="http://www.w3.org/2006/01/wsdl/soap12"
+           ws:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP"
+           ws:mepDefault=
+                 "http://www.w3.org/2003/05/soap/mep/request-response"
+           xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 
+    <operation ref="x:getRecipesOperation"/>
+    <operation ref="x:lockRecipeOperation"/>
+    <operation ref="x:writeRecipeOperation"/>
+    <operation ref="x:unlockRecipeOperation"/>
+    <fault ref="x:lockFault" ws:code="soap:Sender"/>
+  </binding>
+
+  <service name="recipeserver" interface="x:recipeserverInterface"> 
+    <endpoint name="recipeserverEndpoint" 
+           binding="x:recipeserverSOAPBinding"
+           address="http://www.widget.inc/personal/jdoe/recipeserver"/>
+  </service>
+</description>

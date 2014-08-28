@@ -1,0 +1,30 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:jml="http://www.brics.dk/ixwt/jokes"
+        targetNamespace="http://www.brics.dk/ixwt/jokes"
+        elementFormDefault="qualified">
+  <element name="collection">
+    <complexType>
+      <sequence>
+        <element ref="jml:joke" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+    <unique name="joke-id-uniqueness">
+      <selector xpath=".//jml:joke"/>
+      <field xpath="@id"/>
+    </unique>
+  </element>
+
+  <element name="joke">
+    <complexType>
+      <sequence>
+        <element name="title" type="string"/>
+        <element name="date" type="date"/>
+        <element name="author" type="string" minOccurs="0"/>
+        <element name="setup" type="string" minOccurs="0" maxOccurs="unbounded"/>
+        <element name="punchline" type="string"/>
+      </sequence>
+      <attribute name="id" type="unsignedLong"/>
+      <attribute name="category" type="string"/>
+    </complexType>
+  </element>
+</schema>

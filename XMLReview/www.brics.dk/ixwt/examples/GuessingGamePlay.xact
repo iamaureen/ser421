@@ -1,0 +1,72 @@
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import org.jwig.*;
+import dk.brics.xact.*;
+
+public class GuessingGamePlay extends SessionThread {
+  public XML main() throws IOException, ServletException {
+    XML wrapper = XML.loadConstant("GuessingGameWrapper.xml");
+    XML form = [[
+      <form><input name="guess" type="text" size="2" maxlength="2"/>
+      <input type="submit" name="continue" value="continue"/></form>
+    ]];
+
+    ServletContext c = getServletContext();
+    Integer plays = (Integer)c.getAttribute("plays");
+    if (plays==null)
+      plays = new Integer(0);
+    else
+      plays = new Integer(plays.intValue()+1);
+    c.setAttribute("plays", plays);
+    int number = (new Random()).nextInt(100)+1;
+
+    show(wrapper.plug("BODY", 
+      [[Please guess a number between 1 and 100: <{form}>]]));
+    int guesses = 1;
+    boolean done = false;
+    while (!done) {
+      int guess = Integer.parseInt(getParameter("guess"));
+      if (guess==number) 
+        done = true;
+      else {
+        show(wrapper.plug("BODY", [[
+          That is not correct. Try a 
+          <b><{(guess>number)?"lower":"higher"}></b> number: <{form}>
+        ]]));
+        guesses++;
+      } 
+    }
+    
+    XML msg = [[You got it, using <b><{guesses}></b> guesses.]];
+    XML thanks = [[Thank you for playing this exciting game!]];
+    XML res;
+    if (guesses<getCurrentRecord()) {
+      show(wrapper.plug("BODY", [[
+        <{msg}><p/>
+        That makes you the new record holder!<p/>
+        Please enter your name for the hi-score list:
+        <form><input name="name" type="text" size="20"/>
+        <input type="submit" name="continue" value="continue"/></form>
+      ]]));
+      synchronized(c) {
+        if (guesses<getCurrentRecord()) {
+          c.setAttribute("holder", getParameter("name"));
+          c.setAttribute("record", new Integer(guesses));
+        }
+      }
+      res = wrapper.plug("BODY", thanks);
+    } else
+      res = wrapper.plug("BODY", [[<{msg}><p/><{thanks}>]]);
+    return res;
+  }
+
+  int getCurrentRecord() {
+    Integer record = (Integer)c.getAttribute("record");
+    if (record!=null)
+      return record.intValue();
+    else
+      return Integer.MAX_VALUE; // no players yet
+  }
+}

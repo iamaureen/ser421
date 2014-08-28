@@ -1,0 +1,23 @@
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"
+              xmlns:rpc="http://www.w3.org/2003/05/soap-rpc">
+  <env:Body>
+    <family xmlns:enc="http://www.w3.org/2003/05/soap-encoding"              
+            env:encodingStyle="http://www.w3.org/2003/05/soap-encoding"
+            xmlns="http://www.widget.inc/encoding">
+      <name enc:id="3564">Amadeus</name>
+      <mother enc:id="2342">
+        <name>Brenda</name>
+        <spouse enc:ref="4325"/>
+      </mother>
+      <father enc:id="4325">
+        <name>Colbert</name>
+        <mother>
+          <name enc:id="8753">Deziree</name>
+          <spouse enc:ref="3564"/>
+        </mother>
+        <spouse enc:ref="2342"/>
+      </father>
+      <spouse enc:ref="8753"/>
+    </family>
+  </env:Body>
+</env:Envelope>

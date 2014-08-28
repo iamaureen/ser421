@@ -1,0 +1,16 @@
+<element xmlns="http://relaxng.org/ns/structure/1.0"
+          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+          ns="http://businesscard.org"
+          name="card">
+  <element name="name"><text/></element>
+  <element name="title"><text/></element>
+  <element name="email"><text/></element>
+  <optional>
+    <element name="phone"><text/></element>
+  </optional>
+  <optional>
+    <element name="logo">
+      <attribute name="uri"><data type="anyURI"/></attribute>
+    </element>
+  </optional>
+</element>

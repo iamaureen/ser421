@@ -1,0 +1,62 @@
+<xqx:module 
+     xmlns:xqx="http://www.w3.org/2003/12/XQueryX"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.w3.org/2003/12/XQueryX 
+                         xqueryx.xsd">
+  <xqx:mainModule>
+    <xqx:queryBody>
+      <xqx:expr xsi:type="xqx:flwrExpr">
+            <xqx:forClause>
+              <xqx:forClauseItem>
+                <xqx:typedVariableBinding>
+                  <xqx:varName>t</xqx:varName>
+                </xqx:typedVariableBinding>
+                <xqx:forExpr>
+                  <xqx:expr xsi:type="xqx:pathExpr">
+                    <xqx:expr xsi:type="xqx:functionCallExpr">
+                      <xqx:functionName>doc</xqx:functionName>
+                      <xqx:parameters>
+                        <xqx:expr xsi:type="xqx:stringConstantExpr">
+                          <xqx:value>recipes.xml</xqx:value>
+                        </xqx:expr>
+                      </xqx:parameters>
+                    </xqx:expr>
+                    <xqx:stepExpr>
+                      <xqx:xpathAxis>child</xqx:xpathAxis>
+                      <xqx:elementTest>
+                        <xqx:nodeName>
+                          <xqx:QName>rcp:collection</xqx:QName>
+                        </xqx:nodeName>
+                      </xqx:elementTest>
+                    </xqx:stepExpr>
+                    <xqx:stepExpr>
+                      <xqx:xpathAxis>child</xqx:xpathAxis>
+                      <xqx:elementTest>
+                        <xqx:nodeName>
+                          <xqx:QName>rcp:recipe</xqx:QName>
+                        </xqx:nodeName>
+                      </xqx:elementTest>
+                    </xqx:stepExpr>
+                    <xqx:stepExpr>
+                      <xqx:xpathAxis>child</xqx:xpathAxis>
+                      <xqx:elementTest>
+                        <xqx:nodeName>
+                          <xqx:QName>rcp:title</xqx:QName>
+                        </xqx:nodeName>
+                      </xqx:elementTest>
+                    </xqx:stepExpr>
+                  </xqx:expr>
+                </xqx:forExpr>
+              </xqx:forClauseItem>
+            </xqx:forClause>
+            <xqx:returnClause>
+              <xqx:expr xsi:type="xqx:variable">
+                <xqx:name>t</xqx:name>
+              </xqx:expr>
+            </xqx:returnClause>
+          </xqx:expr>
+        </xqx:elementContent>
+      </xqx:expr>
+    </xqx:queryBody>
+  </xqx:mainModule>
+</xqx:module>

@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  color: black;
+  background: white;
+  margin-left: 4%;
+  margin-right: 3%;
+}
+h1, h2 {
+  text-align: center;  
+  margin-top: 1pt;
+  margin-bottom: 1pt;
+}
+h1 { 
+  color: #888; 
+  font: 50px/50px "Impact", sans-serif;
+}
+h2 { 
+  color: #008; 
+  font: bold 35px/35px "Verdana", sans-serif;
+}
+h3 {
+  color: #800;
+  font-size: 15pt;
+  margin-left: -2%;
+}
+hr {
+  margin-left: -2%;
+  margin-right: -1%;
+}
+a:link {
+  color: #c00;
+}
+a:visited {
+  color: #800;
+}
+a:active {
+  color: #f00;
+}

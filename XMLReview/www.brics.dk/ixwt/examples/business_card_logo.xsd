@@ -1,0 +1,11 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:b="http://businesscard.org"
+        targetNamespace="http://businesscard.org">
+
+  <element name="logo" type="b:logo_type"/>
+
+  <complexType name="logo_type">
+    <attribute name="uri" type="anyURI" use="required"/>
+  </complexType>
+
+</schema>

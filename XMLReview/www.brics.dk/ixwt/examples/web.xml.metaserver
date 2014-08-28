@@ -1,0 +1,38 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4">
+    <display-name>Web of Jokes: MetaServer</display-name>
+
+    <context-param>
+      <param-name>ServerFile</param-name>
+      <param-value>/users/jdoe/jokes/servers.xml</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>Register</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Discover</servlet-name>
+        <servlet-class>Discover</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Discover</servlet-name>
+        <url-pattern>/Discover</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Unique</servlet-name>
+        <servlet-class>Unique</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Unique</servlet-name>
+        <url-pattern>/Unique</url-pattern>
+    </servlet-mapping>
+</web-app>

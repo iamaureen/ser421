@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE joke SYSTEM "jokeml.dtd">
+<?xml-stylesheet type="text/xsl" href="jokeml2xhtml.xsl"?>
+
+<joke category="blondes">   <!-- added sep. 6, 2001 -->
+
+  <setup>
+    Two gorgeous blonde biologists were in the field one fine summer
+    day. While following a game trail, they came across a pair of
+    tracks. &quot;Look! a pair of tracks&quot; The first blonde said while
+    pointing to the ground.
+  </setup>
+
+  <setup>
+    <![CDATA["Those are deer tracks," the other blonde replied.]]>
+  </setup>
+
+  <punchline>
+    "Oh no," she said to the first, "Those are definitely moose
+    tracks."  With this, they began to argue. In fact, they were still
+    arguing when the train hit them.
+  </punchline>
+
+</joke>

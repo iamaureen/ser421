@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<title>An Introduction to XML and Web Technologies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<LINK REL="SHORTCUT ICON" HREF="brics.ico">
+<link href="style.css" rel=stylesheet type="text/css">
+</head>
+<body>  
+
+<h1>Errata and technical updates</h1>
+
+<ul>
+<li>p.17 Figure 1.2. "<tt>italics</tt>" should be "<tt>italic</tt>".
+<li>p.36 Figure 2.2. Node C should be included in the "leaves". 
+<li>p.54 line 13. "<tt>amount</tt> element" should be "<tt>amount</tt> attribute".
+<li>p.64 line -1. There is a way around the design bug: use the functions <tt>local-name</tt> and <tt>namespace-uri</tt>. 
+<li>p.78 and p.248. "<tt>2005/04</tt>" should be "<tt>2005</tt>" in the XPath namespace URIs (this changed when XPath 2.0 moved to Candidate Recommendation).
+<li>p.82 line 12. The URL should be "<tt>http://www.w3.org/TR/xpath-functions</tt>" (the other URL points to an old version).
+<li>p.89 line -6. The URL should be "<tt>http://www.w3.org/TR/xpath</tt>" (without the trailing '<tt>/</tt>').
+<li>p.90: The home page for the XPath Visualizer has moved to <tt><a href="http://www.topxml.com/xpathvisualizer/">http://www.topxml.com/xpathvisualizer/</a></tt> - an alternative
+tool is the XPath Explorer available from <tt><a href="http://www.purpletech.com/xpe/">http://www.purpletech.com/xpe/</a></tt>. 
+<li>p.90: Exercise 3.6. Add parentheses around e.g. <tt>(//rcp:ingredient)[40]</tt> as explained on p.69.
+<li>p.91: With the (current version of) the Saxon tool, you should use the default namespace (i.e., no prefix) rather than the <tt>fn</tt> prefix for XPath function names.
+<li>p.95 line -1 and p.100 line 18. The expressions should be "<tt>caption? ( col* | colgroup* ) thead? tfoot? ( tbody+ | tr+ )</tt>" and "<tt>(caption?, (col*|colgroup*), thead?, tfoot?, (tbody+|tr+))</tt>", respectively. 
+<li>p.123 line 12-13. There is in fact another way to write this: <tt>&lt;union memberTypes="boolean decimal"/&gt;</tt>.
+<li>p.139. The discussion of qualified vs. unqualified locals is slightly misleading: a name is <i>qualified</i> if it is associated with a non-empty namespace URI
+(in particular, non-prefixed names may be qualified).
+<li>p.140 line 4. "<tt>/&gt;</tt>" should be "<tt>&gt;</tt>".
+<li>p.147 line 10. "one or more" should be "zero or more".
+<li>p.149 line 8. <tt>ref="b:email"</tt> should be <tt>name="email"</tt>.
+<li>p.184. The '<tt>any</tt>' construct in XML Schema makes it possible to go slightly beyond the class of <i>single-type
+tree grammars</i>. For more information, see <tt><a href="http://www.w3.org/Bugs/Public/show_bug.cgi?id=2231">http://www.w3.org/Bugs/Public/show_bug.cgi?id=2231</a></tt>
+and also Section 3.2.7 of "Taxonomy of XML Schema Languages Using Formal Language Theory", 
+Murata, Lee, Mani and Kawaguchi, ACM Transactions on Internet Technology, 5(4), 2005.
+It is expected that a future revision of XML Schema will remedy this situation.
+<li> p.186 line -4: "and only" should be "and only if"
+<li>p.214 line -6: The instructions <tt>apply-templates</tt> and <tt>attribute</tt> should be swapped.
+<li>pp.227-229. The transformation being described can in fact (easily) be expressed in XSLT 1.0. However, many compositions can only be expressed
+with cumbersome encodings making them practically useless. (An example is a composition of sorting, grouping, and totalling a table of data.) 
+
+<li>p.246 line 17. "schemas languages" should be "schema languages".
+<li>p.253. Computed namespaces have been deprecated (used 3 places). Use namespace declarations in the prolog instead. 
+<li>p.257 line 18 and p.258 line 12. Brackets are missing inside the <tt>title</tt> element. 
+<li>p.258 line 26 and p.266 line 10. "<tt>document</tt>" should be "<tt>doc</tt>". 
+<li>p.276 line 15. Some lines are missing in the example...
+<li>p.297 line 15. The line with the <tt>if</tt> check should be removed. 
+<li>pp.328-329. Updated example: <tt><a href="examples/recipes.stx">recipes.stx</a></tt> 
+<li>pp.332-333. The example program contains two typos. The correct version is here:
+<tt><a href="examples/recipes.q">recipes.q</a></tt> 
+<li>pp.334-338. The <span class="smallcap">Xact</span> system has been revised since the book was printed. Updated examples: <tt><a href="examples/PhoneList.xact">PhoneList.xact</a></tt>, <tt><a href="examples/Flatten.xact">Flatten.xact</a></tt>. See <tt><a href="http://www.brics.dk/Xact/">http://www.brics.dk/Xact</a></tt> for more information.
+<li>p.344 line -5. "though" should be "through".
+<li>p.355 line 2. "<tt>freewig.brics.dk/freewig.brics.dk</tt>" should be "<tt>freewig.brics.dk</tt>". 
+<li>p.363 line 17. "as long string" should be "as a long string".
+<li>p.386 line 7. "<tt>&lt;HTML&gt;&lt;HEAD&gt;</tt>" is missing.
+<li>p.392 line -11. "then used" should be "then be used".
+<li>p.448. With Internet Explorer, <tt>button</tt> elements with <tt>type="submit"</tt> do not work according to the 
+HTML specification. The bug is discussed <a href="http://www.quirksmode.org/bugreports/archives/2006/07/Namevalue_pairs_arent_submitted_for_image_submit_b.html">here</a>.
+<li>pp.481-488. "<tt>2004/08</tt>" and "<tt>2004/03</tt>" should be "<tt>2006/01</tt>" (this changed when WSDL 2.0 moved to Candidate Recommendation).
+<li>p.465 line 9. "<tt>\%</tt>" should be "<tt>%</tt>" (twice).
+<li>p.524. "The deployment of the server" should be "The deployment of the client".
+</ul>
+
+Thanks to Pekka Kilpeläinen, Michael Kay, Kristian Espensen, M. Kjeldsen, 
+Hans F. Nordhaug, Mark B. Josephs, Norbert Voelker, Henrik Davidsen, Karsten Kynde,
+Mads Landrock, and Simon Lykke for reporting errors.
+
+<center>
+<a href="http://www.brics.dk/ixwt/"><img src="left.gif" alt="" border=0></a> <a href="http://www.brics.dk/ixwt/">back to the main page</a>
+</center>
+
+<p>
+
+<center class="footer">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+  <tbody><tr>
+    <td bgcolor="#3366cc"><img alt="" height="1" width="1" src="back.gif"></td>
+  </tr>
+</tbody></table>
+  <table bgcolor="#e5ecf9" border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tbody><tr>
+      <td bgcolor="#e5ecf9" nowrap="nowrap"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td align="right" nowrap="nowrap"><i><a href="mailto:amoeller@cs.au.dk,mis@cs.au.dk?subject=An%20Introduction%20to%20XML%20and%20Web%20Technologies">Anders M&oslash;ller &amp; Michael I. Schwartzbach</a>, last update: January 7, 2010</i></td>
+          </tr>
+      </tbody></table></td>
+    </tr>
+  </tbody></table>
+</center>
+
+</body>
+</html>

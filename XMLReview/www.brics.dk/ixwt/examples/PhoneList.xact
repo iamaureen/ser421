@@ -1,0 +1,30 @@
+import java.io.*;
+import dk.brics.xact.*;
+
+public class PhoneList {
+  @Namespace public static final String c = "http://businesscard.org";
+  @Namespace public static final String h = "http://www.w3.org/1999/xhtml";
+
+  public static void main(String[] args) 
+      throws XactException, IOException {
+    XML wrapper = [[<h:html>
+                      <h:head>
+                        <h:title><[TITLE]></h:title>
+                      </h:head>
+                      <h:body>
+                        <h:h1><[TITLE]></h:h1>
+                        <[MAIN]>
+                      </h:body>
+                    </h:html>]];
+    XML cardlist = XML.get("file:cards.xml", "c:cardlist");
+    XML x = wrapper.plug("TITLE", "My Phone List")
+                   .plug("MAIN", [[<h:ul><[CARDS]></h:ul>]]);
+    for (XML card : cardlist.select("c:card[c:phone]")) 
+      x = x.plug("CARDS", [[<h:li>
+                              <h:b><{ card.select("c:name/text()") }></h:b>,
+                              phone: <{ card.select("c:phone/text()") }>
+                            </h:li>
+                            <[CARDS]>]]);
+    System.out.println(x.close());
+  }
+}

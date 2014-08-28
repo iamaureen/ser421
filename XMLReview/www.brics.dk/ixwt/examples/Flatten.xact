@@ -1,0 +1,31 @@
+import java.io.*;
+import dk.brics.xact.*;
+
+public class Flatten {
+  @Namespace public static final String rcp = "http://www.brics.dk/ixwt/recipes";
+
+  public static void main(String[] args) 
+      throws XactException, IOException {
+    XML collection = XML.get("file:recipes.xml", "rcp:collection");
+    XML result = [[<rcp:collection>
+                     <{ collection.selectFirst("rcp:description") }>
+                     <[MORE]>
+                   </rcp:collection>]];
+    for (XML r : collection.select("rcp:recipe")) 
+      result = result.plug("MORE",
+        [[<rcp:recipe>
+            <{ r.selectFirst("rcp:title") }>
+            <{ r.selectFirst("rcp:date") }>
+            <{ r.selectAll("//rcp:ingredient[@amount]") }>
+            <rcp:preparation>
+              <{ r.selectAll("//rcp:step") }>
+            </rcp:preparation>
+            <{ r.selectFirst("rcp:comment") }>
+            <{ r.selectFirst("rcp:nutrition") }>
+            <{ r.selectFirst("rcp:related") }>
+          </rcp:recipe>
+          <[MORE]>]]);
+    result = result.close();
+    System.out.println(result.analyze("rcp:collection"));
+  }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jml:collection xmlns:jml="http://www.brics.dk/ixwt/jokes">
+  <jml:joke id="183736363" category="animals">
+     <jml:title>Two Cows in a Field</jml:title>
+     <jml:date>2005-02-28</jml:date>
+     <jml:author>John Doe</jml:author>
+     <jml:setup>
+       Two cows are standing in a field eating grass. 
+     </jml:setup>
+     <jml:setup>
+       The first cow says: "Moooo"!
+     </jml:setup>
+     <jml:punchline>
+       The second cow replies: "Hey, I was just gonna say that"!
+     </jml:punchline>
+  </jml:joke>
+  <jml:joke id="827272622" category="cows">
+     <jml:title>Mad Cows</jml:title>
+     <jml:date>2004-12-14</jml:date>
+     <jml:setup>
+       Two cows are talking.
+     </jml:setup>
+     <jml:setup>
+       The first cow: "Hey, did you hear about that mad cow disease?"
+     </jml:setup>
+     <jml:setup>
+       The second cow: "Yeah, but I'm not worried about it."
+     </jml:setup>
+     <jml:setup>
+       The first cow: "Why not?"
+     </jml:setup>
+     <jml:punchline>
+       The second cow: "I'm a duck."
+     </jml:punchline>
+  </jml:joke>
+</jml:collection>

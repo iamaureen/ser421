@@ -1,0 +1,74 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:b="http://www.brics.dk/ixwt/bizarro"
+        targetNamespace="http://www.brics.dk/ixwt/bizarro"
+        elementFormDefault="qualified">
+
+  <simpleType name="A">
+    <restriction base="string">
+      <minLength value="2"/>
+      <pattern value="([0-9]|[1-9][0-9]|100)%"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="B">
+    <simpleContent>
+      <extension base="b:A">
+        <attribute name="a" type="b:A" use="required"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="C" abstract="true">
+    <simpleContent>
+      <restriction base="b:B">
+        <minLength value="3"/>
+      </restriction>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="D">
+    <sequence>
+      <element name="Y" type="b:A"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="E">
+    <complexContent>
+      <extension base="b:D">
+        <sequence>
+          <element name="X" type="b:B" minOccurs="0"/>
+        </sequence>
+        <attribute name="a" type="string"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <complexType name="F">
+    <simpleContent>
+      <extension base="b:C">
+        <attribute name="b" type="b:A"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="G">
+    <complexContent>
+      <restriction base="b:E">
+        <sequence>
+          <element name="Y" type="b:A"/>
+          <element name="X" type="b:C"/>
+        </sequence>
+        <attribute name="a" use="required">
+          <simpleType>
+            <restriction base="b:A">
+              <minLength value="4"/>
+            </restriction>
+          </simpleType>
+        </attribute>
+      </restriction>
+    </complexContent>
+  </complexType>
+
+  <element name="H" type="b:G"/>
+
+</schema>

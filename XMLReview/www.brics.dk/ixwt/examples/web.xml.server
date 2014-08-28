@@ -1,0 +1,53 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4">
+    <display-name>Web of Jokes: Server</display-name>
+
+    <context-param>
+      <param-name>JokeFile</param-name>
+      <param-value>/users/jdoe/jokes/jokes.xml</param-value>
+    </context-param>
+
+    <context-param>
+      <param-name>JokesXSD</param-name>
+      <param-value>/users/jdoe/jokes/jokes.xsd</param-value>
+    </context-param>
+
+    <context-param>
+      <param-name>RetrieveXSLT</param-name>
+      <param-value>/users/jdoe/jokes/retrieve.xsl</param-value>
+    </context-param>
+
+    <context-param>
+      <param-name>CategoriesXSLT</param-name>
+      <param-value>/users/jdoe/jokes/categories.xsl</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>List</servlet-name>
+        <servlet-class>List</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>List</servlet-name>
+        <url-pattern>/List</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Retrieve</servlet-name>
+        <servlet-class>Retrieve</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Retrieve</servlet-name>
+        <url-pattern>/Retrieve</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Submit</servlet-name>
+        <servlet-class>Submit</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Submit</servlet-name>
+        <url-pattern>/Submit</url-pattern>
+    </servlet-mapping>
+</web-app>

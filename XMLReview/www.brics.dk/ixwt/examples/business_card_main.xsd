@@ -1,0 +1,7 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://businesscard.org">
+
+  <include schemaLocation="business_card_misc.xsd"/>
+  <include schemaLocation="business_card_logo.xsd"/>
+
+</schema>
