@@ -5,16 +5,16 @@
            "http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
          version="2.4"> 
 
-  <!-- Use the URL http://hostname/appname/show-time
-       for the ShowTime servlet.
+  <!-- Use the URL http://hostname/appname/show-time-in-city
+       for the ShowTimeInCity servlet.
   -->
   <servlet>
-    <servlet-name>ShowTime</servlet-name>
-    <servlet-class>coreservlets.ShowTime</servlet-class>
+    <servlet-name>ShowTimeInCity</servlet-name>
+    <servlet-class>coreservlets.ShowTimeInCity</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ShowTime</servlet-name>
-    <url-pattern>/show-time</url-pattern>
+    <servlet-name>ShowTimeInCity</servlet-name>
+    <url-pattern>/show-time-in-city</url-pattern>
   </servlet-mapping>
 
   <!-- Disable the invoker servlet. -->
