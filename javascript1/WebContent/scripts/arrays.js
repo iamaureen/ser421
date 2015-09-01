@@ -9,13 +9,13 @@ function arrayLoops() {
     
 function printArray1(array) {
   for(var i=0; i<array.length; i++) {
-    console.log("[printArray1] array[%o] is %o", i, array[i]);
+    console.log("[printArray1] array[" + i + "] is " + array[i]);
   }
 }
 
 function printArray2(array) {
   for(var i in array) {
-    console.log("[printArray2] array[%o] is %o", i, array[i]);
+    console.log("[printArray2] array[" + i + "] is " + array[i]);
   }
 }
 

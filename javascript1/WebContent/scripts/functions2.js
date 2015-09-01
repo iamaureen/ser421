@@ -10,8 +10,7 @@ function operate2() {
     for(var j=0; j<nums.length; j++) {
       var f = functions[i];
       var num = nums[j];
-      console.log("Operation on %o is %o.", 
-                  num, f(num));
+	console.log("Operation on " + num + " is " + f(num)); 
     }
   }
 }

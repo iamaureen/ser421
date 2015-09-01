@@ -8,7 +8,7 @@ function Circle(radius) {
 }
 
 var c = new Circle(10);
-c.getArea();         
+console.log("Area = " + c.getArea());         
 
 // Trick so that the Firebug console.log function will
 // be ignored (instead of crashing) in Internet Explorer.

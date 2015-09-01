@@ -18,7 +18,7 @@ public class DOMWalker {
 
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setIgnoringElementContentWhitespace(true);
-		//factory.setValidating(true);
+		factory.setValidating(true);
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		doc = builder.parse(source);
 
