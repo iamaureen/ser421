@@ -1,4 +1,10 @@
 *.class
+*.DS_Store
+*.gitignore
+
+# Emacs, because Dr. Gary likes it
+\#*#
+*~
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
