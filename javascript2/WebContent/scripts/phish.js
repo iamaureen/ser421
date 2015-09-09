@@ -10,7 +10,7 @@ function getMessage() {
 function showWinnings1() {
 	var elem = document.getElementById('fish');
 	elem.innerHTML=getMessage();
- // alert(getMessage());
+  alert(getMessage());
 }
 
 function showWinnings2() {
