@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang='en' >
+  <head>
+    <title>Shopping Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+  </head>
+
+  <body ng-app="ttsApp" ng-controller="ShoppingController">
+    <h1>Shop!</h1>
+    <table>
+      <tr ng-repeat="item in items">
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price | currency}}</td>
+      </tr>
+    </table>
+    <script>
+      var app = angular.module("ttsApp", []);
+      app.controller("ShoppingController", function($scope,$http) {
+        $http.get('/products').success(function(data, status, headers, config) {
+          $scope.items = data;
+        });
+      });
+    </script>
+  </body>
+</html>
